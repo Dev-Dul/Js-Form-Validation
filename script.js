@@ -4,6 +4,7 @@ const form = document.getElementById("form");
 const right = document.querySelector(".right");
 const left = document.querySelector(".left");
 const submit = document.getElementById("submit");
+const back = document.querySelector(".left > .arrow i");
 
 Array.from(inputs).forEach((input, index) => {
     input.addEventListener("input", () => {
@@ -52,8 +53,12 @@ submit.addEventListener("click", () => {
             showError(input, index);
         });
     }
-})
+});
 
+back.addEventListener("click", () => {
+    left.classList.remove("show");
+    right.classList.add("show");
+})
 
 function showError(input, index){
     console.log("showError called");
