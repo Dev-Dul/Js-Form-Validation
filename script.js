@@ -1,6 +1,9 @@
 const inputs = document.getElementsByTagName("input");
 const errs = document.querySelectorAll(".error");
 const form = document.getElementById("form");
+const right = document.querySelector(".right");
+const left = document.querySelector(".left");
+const submit = document.getElementById("submit");
 
 Array.from(inputs).forEach((input, index) => {
     input.addEventListener("input", () => {
@@ -25,6 +28,31 @@ Array.from(inputs).forEach((input, index) => {
         input.classList.add("jump");
     });
 });
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+});
+
+submit.addEventListener("click", () => {
+    let vld = true;
+    Array.from(inputs).forEach((input) => {
+        if(input.validity.valid){
+            vld = true;
+        }else{
+            vld = false;
+        }
+    });
+
+
+    if(vld){
+        right.classList.remove("show");
+        left.classList.add("show");
+    }else{
+        Array.from(inputs).forEach((input, index) => {
+            showError(input, index);
+        });
+    }
+})
 
 
 function showError(input, index){
