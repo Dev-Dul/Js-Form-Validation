@@ -61,7 +61,6 @@ back.addEventListener("click", () => {
 })
 
 function showError(input, index){
-    console.log("showError called");
     if(input.type === "text" && index === 0){
         nameError(input, index);
     }else if(input.type === "email"){
